@@ -1,0 +1,24 @@
+server:
+  port: 8888
+
+eureka:
+  host: 172.16.33.30
+  port: 8761
+  client:
+    service-url:
+      defaultZone: http://${eureka.host}:${eureka.port}/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    leaseExpirationDurationInSeconds: 2
+    leaseRenewalIntervalInSeconds: 1
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
